@@ -5,13 +5,13 @@ metadata:
   name: bootstrap
   namespace: argocd
 spec:
-  project: infrastructure
+  project: applications
   destination:
     name: in-cluster
     namespace: argocd
   sources:
     - repoURL: https://github.com/imtpot/argocd-demo.git
-      path: argocd/infrastructure/
+      path: argocd/applications/
       targetRevision: HEAD
   syncPolicy:
     syncOptions:
@@ -22,7 +22,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: infrastructure
+  name: applications
   namespace: argocd
 spec:
   sourceRepos:
