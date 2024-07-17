@@ -1,3 +1,4 @@
+---
 - op: add
   path: /spec/source/helm/valuesObject
   value:

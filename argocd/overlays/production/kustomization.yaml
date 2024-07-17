@@ -5,12 +5,12 @@ kind: Kustomization
 resources:
   - ../../base/
 
+components:
+  - ../../components/argocd/
+
 namePrefix: prod-
 
 patches:
-  - path: ns-patch.yaml
-    target:
-      kind: Application
   - path: bootstrap-patch.yaml
     target:
       kind: Application
