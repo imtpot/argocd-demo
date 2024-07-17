@@ -9,9 +9,3 @@ patches:
     target:
       kind: Application
       name: podinfo
-
-configMapGenerator:
-  - name: podinfo-values
-    behavior: replace
-    files:
-      - podinfo-values.yaml
