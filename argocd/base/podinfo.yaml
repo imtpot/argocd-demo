@@ -6,17 +6,10 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  sources:
-    - repoURL: https://stefanprodan.github.io/podinfo
-      chart: podinfo
-      targetRevision: 6.7.0
-      helm:
-        valueFiles:
-          - $values/podinfo-values.yaml
-    - repoURL: https://github.com/imtpot/argocd-demo.git
-      targetRevision: HEAD
-      ref: values
-      path: argocd/overlays/dev/values # Will be changed by Kustomize
+  source:
+    repoURL: https://stefanprodan.github.io/podinfo
+    chart: podinfo
+    targetRevision: 6.7.0
   destination:
     name: in-cluster
     namespace: podinfo
