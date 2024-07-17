@@ -18,6 +18,8 @@ spec:
       - ApplyOutOfSyncOnly=true
     automated:
       selfHeal: true
+  kustomize:
+    components:
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
