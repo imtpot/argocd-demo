@@ -14,6 +14,8 @@ spec:
     name: in-cluster
     namespace: podinfo
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
