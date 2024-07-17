@@ -1,0 +1,4 @@
+---
+- op: merge
+  path: /metadata/namespace
+  value: prod-

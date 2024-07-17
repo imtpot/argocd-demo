@@ -8,6 +8,9 @@ resources:
 namePrefix: prod-
 
 patches:
+  - path: all-patch.yaml
+    target:
+      kind: Application
   - path: bootstrap-patch.yaml
     target:
       kind: Application
