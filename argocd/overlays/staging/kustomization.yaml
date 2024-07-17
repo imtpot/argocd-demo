@@ -5,7 +5,8 @@ kind: Kustomization
 resources:
   - ../../base/
 
-namePrefix: stage-
+components:
+  - ../../components/argocd/
 
 patches:
   - path: bootstrap-patch.yaml

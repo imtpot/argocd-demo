@@ -8,8 +8,6 @@ resources:
 components:
   - ../../components/argocd/
 
-namePrefix: prod-
-
 patches:
   - path: bootstrap-patch.yaml
     target:
@@ -19,3 +17,7 @@ patches:
     target:
       kind: Application
       name: podinfo
+  - path: argocd-patch.yaml
+    target:
+      kind: Application
+      name: argocd

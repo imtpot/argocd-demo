@@ -1,4 +1,0 @@
----
-- op: merge
-  path: /spec/destination/namespace
-  value: prod-

@@ -49,4 +49,7 @@ class ArgoCD(ComponentResource):
         )
 
 cluster_1 = KindCluster('cluster-1')
+cluster_2 = KindCluster('cluster-2')
+
 argocd_1 = ArgoCD('argocd-1', cluster_1)
+argocd_2 = ArgoCD('argocd-2', cluster_2)

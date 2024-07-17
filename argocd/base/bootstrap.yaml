@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/imtpot/argocd-demo.git
     targetRevision: HEAD
-    # path: argocd/overlays/dev
+    path: argocd/overlays/
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true

@@ -1,0 +1,6 @@
+---
+- op: add
+  path: /spec/source/helm/valuesObject
+  value:
+    server:
+      replicas: 2
