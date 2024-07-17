@@ -1,0 +1,4 @@
+---
+spec:
+  sources:
+    - targetRevision: 6.6.3
