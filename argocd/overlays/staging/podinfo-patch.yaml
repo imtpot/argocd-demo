@@ -1,5 +1,4 @@
----
 - op: add
   path: /spec/source/helm/valuesObject
   value:
-    replicaCount: 4
+    replicaCount: 2
