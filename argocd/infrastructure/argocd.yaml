@@ -8,7 +8,7 @@ spec:
   project: infrastructure
   sources:
     - repoURL: https://argoproj.github.io/argo-helm
-      chart: argocd
+      chart: argo-cd
       targetRevision: 7.3.7
   destination:
     server: https://kubernetes.default.svc
