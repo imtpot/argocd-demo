@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap
+  namespace: argocd
+spec:
+  project: infrastructure
+  destination:
+    name: in-cluster
+    namespace: argocd
+  sources:
+    - repoURL: https://github.com/imtpot/argocd-demo.git
+      parh: argocd/infrastructure/
+      targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
