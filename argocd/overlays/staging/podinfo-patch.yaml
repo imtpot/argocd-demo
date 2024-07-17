@@ -1,4 +1,7 @@
 ---
+- op: replace
+  path: /spec/sources/0/targetRevision
+  value: 6.6.3
 - op: add
   path: /spec/source/helm/valuesObject
   value:
