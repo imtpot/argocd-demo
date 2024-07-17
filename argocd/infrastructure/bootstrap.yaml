@@ -11,7 +11,7 @@ spec:
     namespace: argocd
   sources:
     - repoURL: https://github.com/imtpot/argocd-demo.git
-      parh: argocd/infrastructure/
+      path: argocd/infrastructure/
       targetRevision: HEAD
   syncPolicy:
     automated:
