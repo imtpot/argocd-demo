@@ -10,6 +10,9 @@ spec:
     repoURL: https://stefanprodan.github.io/podinfo
     chart: podinfo
     targetRevision: 6.7.0
+    helm:
+      valuesObject:
+        replicaCount: 2
   destination:
     name: in-cluster
     namespace: podinfo
