@@ -1,4 +1,4 @@
-- op: replace
+- op: add
   path: /spec/source/helm/valuesObject
   value:
     replicaCount: 4
