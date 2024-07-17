@@ -5,4 +5,5 @@ resources:
   - ../../base
 
 patches:
-  - path: argocd.yaml
+  - path: bootstrap.yaml
+  - path: podinfo.yaml
