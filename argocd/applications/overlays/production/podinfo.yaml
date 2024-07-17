@@ -1,4 +1,4 @@
 ---
 - op: add
   path: /spec/sources/0/targetRevision
-  value: 6.7.0
+  value: 6.6.3
