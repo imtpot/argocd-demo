@@ -5,7 +5,7 @@ metadata:
   name: podinfo
   namespace: argocd
 spec:
-  project: applications
+  project: default
   sources:
     - repoURL: https://stefanprodan.github.io/podinfo
       chart: podinfo

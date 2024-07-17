@@ -5,7 +5,7 @@ metadata:
   name: bootstrap
   namespace: argocd
 spec:
-  project: applications
+  project: default
   destination:
     name: in-cluster
     namespace: argocd
