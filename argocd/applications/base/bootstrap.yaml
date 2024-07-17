@@ -9,10 +9,10 @@ spec:
   destination:
     name: in-cluster
     namespace: argocd
-  sources:
-    - repoURL: https://github.com/imtpot/argocd-demo.git
-      path: argocd/applications/
-      targetRevision: HEAD
+  source:
+    repoURL: https://github.com/imtpot/argocd-demo.git
+    targetRevision: HEAD
+    path: argocd/applications/base/
   syncPolicy:
     syncOptions:
       - ApplyOutOfSyncOnly=true

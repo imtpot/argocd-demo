@@ -5,11 +5,6 @@ resources:
   - ../../base
 
 patches:
-  - path: bootstrap.yaml
+  - path: patch.yaml
     target:
       kind: Application
-      name: bootstrap-applications
-  - path: podinfo.yaml
-    target:
-      kind: Application
-      name: podinfo

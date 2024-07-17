@@ -1,4 +1,4 @@
 ---
 - op: replace
-  path: /spec/sources/0/path
+  path: /spec/source/path
   value: argocd/applications/overlays/production/
