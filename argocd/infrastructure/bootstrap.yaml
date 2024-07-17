@@ -24,7 +24,7 @@ metadata:
   namespace: argocd
 spec:
   destinations:
-    - name: "*"
+    - server: "*"
       namespace: "*"
   sourceRepos:
     - "*"
