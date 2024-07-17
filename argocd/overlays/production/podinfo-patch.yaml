@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/destination/namespace
+  value: podinfo-prod
+- op: replace
+  path: /spec/source/helm/valueFiles/0
+  value: values-prod.yaml

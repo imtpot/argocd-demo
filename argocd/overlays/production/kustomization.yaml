@@ -3,3 +3,11 @@ kind: Kustomization
 
 resources:
   - ../../base/
+
+patches:
+  - path: podinfo-patch.yaml
+configMapGenerator:
+  - name: podinfo-values
+    behavior: replace
+    files:
+      - podinfo-values.yaml
