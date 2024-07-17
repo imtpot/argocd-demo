@@ -1,4 +1,4 @@
 ---
-spec:
-  sources:
-    - targetRevision: 6.6.3
+- op: replace
+  path: /spec/sources/0/targetRevision
+  value: 6.6.3
