@@ -1,4 +1,4 @@
-- op: add
+- op: replace
   path: /spec/source/helm/valuesObject
-  value:
+  value: |
     $load: values.yaml
