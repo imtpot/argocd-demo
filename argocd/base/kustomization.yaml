@@ -3,3 +3,8 @@ kind: Kustomization
 
 resources:
   - podinfo.yaml
+
+configMapGenerator:
+  - name: podinfo-values
+    files:
+      - podinfo-values.yaml
