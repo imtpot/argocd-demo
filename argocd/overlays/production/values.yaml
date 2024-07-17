@@ -1,5 +1,0 @@
-replicaCount: 4
-resources:
-  requests:
-    cpu: 200m
-    memory: 128Mi

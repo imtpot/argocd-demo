@@ -1,4 +1,8 @@
 - op: replace
   path: /spec/source/helm/valuesObject
-  value: |
-    $load: values.yaml
+  value:
+    replicaCount: 4
+    resources:
+      requests:
+        cpu: 200m
+        memory: 128Mi
