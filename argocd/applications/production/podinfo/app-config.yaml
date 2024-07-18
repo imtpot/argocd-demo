@@ -5,7 +5,7 @@ source:
   targetRevision: 6.7.0
   chart: podinfo
 
-values_sources:
+values_source:
   repoURL: https://github.com/imtpot/argocd-demo.git
   targetRevision: appsets
   path: argocd/applications/production/podinfo/values.yaml
