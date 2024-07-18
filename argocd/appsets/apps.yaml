@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/imtpot/argocd-demo.git
         revision: appsets
         files:
-          - path: "argocd/apps/**/app-config.yaml"
+          - path: "apps/**/app-config.yaml"
   template:
     metadata:
       name: "{{ .metadata.name }}"
@@ -34,16 +34,20 @@ spec:
     spec:
       source:
         chart: '{{ .spec.source.chart }}'
+        {{- if hasKey .spec.source "helm" }}
         helm:
+          {{- if hasKey .spec.source.helm "valueFiles" }}
           valueFiles:
             {{- range .spec.source.helm.valueFiles }}
             - '{{ . }}'
             {{- end }}
-          {{- if .spec.source.helm.values }}
+          {{- end }}
+          {{- if hasKey .spec.source.helm "values" }}
           values: |
             {{ .spec.source.helm.values | nindent 12 }}
           {{- end }}
-    {{- else }}
+        {{- end }}
+    {{- else if hasKey .spec.source "path" }}
     spec:
       source:
         path: '{{ .spec.source.path }}'
