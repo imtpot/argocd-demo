@@ -18,12 +18,14 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/imtpot/argocd-demo.git
-        targetRevision: appsets
-        path: "{{.path.path}}"
+        repoURL: "{{ repoUrl }}"
+        chart: "{{ chart }}"
+        targetRevision: "{{ targetRevision }}"
+        helm:
+          valuesObject: "{{ values }}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{index .path.segments 1}}-{{index .path.segments 3}}"
+        namespace: "{{ namespace }}"
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
