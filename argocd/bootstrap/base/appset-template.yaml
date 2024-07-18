@@ -39,12 +39,12 @@ spec:
   templatePatch: |
     spec:
       sources:
-        {{- if hasKey .source "chart" }}
-        - chart: '{{ .source.chart }}'
-        {{- else if hasKey .source "path" }}
-        - path: '{{ .source.path }}'
+        {{- if hasKey .sources "chart" }}
+        chart: '{{ .sources.chart }}'
+        {{- else if hasKey .sources "path" }}
+        path: '{{ .sources.path }}'
         {{- end }}
-        {{- if hasKey .source "values" }}
-          helm:
-            valuesObject: {{ toJson .source.values }}
+        {{- if hasKey .sources "values" }}
+        helm:
+          valuesObject: {{ toJson .source.values }}
         {{- end }}

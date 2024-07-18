@@ -1,8 +1,8 @@
 name: podinfo
 namespace: podinfo
-source:
-  repoURL: https://stefanprodan.github.io/podinfo
-  targetRevision: 6.7.0
-  chart: podinfo
-  values:
-    replicaCount: 3
+sources:
+  - repoURL: https://stefanprodan.github.io/podinfo
+    targetRevision: 6.7.0
+    chart: podinfo
+    values:
+      replicaCount: 3
