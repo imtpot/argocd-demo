@@ -14,29 +14,29 @@ spec:
           - path: "apps/**/app-config.yaml"
   template:
     metadata:
-      name: "{{.metadata.name}}"
+      name: '{{ .metadata.name }}'
     spec:
       project: default
       source:
-        repoURL: "{{.spec.source.repoURL}}"
-        targetRevision: "{{.spec.source.targetRevision}}"
-        {{if eq .spec.source.type "helm"}}
-        chart: "{{.spec.source.chart}}"
+        repoURL: '{{ .spec.source.repoURL }}'
+        targetRevision: '{{ .spec.source.targetRevision }}'
+        {{- if eq .spec.source.type "helm" }}
+        chart: '{{ .spec.source.chart }}'
         helm:
           valueFiles:
-            {{range .spec.source.helm.valueFiles}}
-            - "{{.}}"
-            {{end}}
-          {{if .spec.source.helm.values}}
+            {{- range .spec.source.helm.valueFiles }}
+            - '{{ . }}'
+            {{- end }}
+          {{- if .spec.source.helm.values }}
           values: |
-            {{.spec.source.helm.values | nindent 12}}
-          {{end}}
-        {{else}}
-        path: "{{.spec.source.path}}"
-        {{end}}
+            {{ .spec.source.helm.values | nindent 12 }}
+          {{- end }}
+        {{- else }}
+        path: '{{ .spec.source.path }}'
+        {{- end }}
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{.spec.destination.namespace}}"
+        namespace: '{{ .spec.destination.namespace }}'
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
