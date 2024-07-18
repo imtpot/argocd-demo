@@ -13,7 +13,6 @@ spec:
         files:
           - path: argocd/applications/**/app-config.yaml
           - path: argocd/infrastructure/**/app-config.yaml
-          - path: argocd/infrastructure/**/values.yaml
 
   template:
     metadata:
@@ -43,7 +42,6 @@ spec:
         helm:
           valuesObject: {{ toJson .source.values }}
         {{- end }}
-        {{- if hasKey .source.valuesFiles }}
     {{- else if hasKey .source "path" }}
     spec:
       source:
