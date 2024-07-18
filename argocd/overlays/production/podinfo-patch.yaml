@@ -1,5 +1,9 @@
 ---
 - op: add
+  path: /spec/source/kustomize
+  value:
+    namespace: prod-namespace
+- op: add
   path: /spec/source/helm/valuesObject
   value:
     replicaCount: 4
