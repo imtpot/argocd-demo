@@ -24,9 +24,9 @@ spec:
         app.kubernetes.io/name: "{{ .name }}"
     spec:
       project: default
-      source:
-        repoURL: "{{ .source.repoURL }}"
-        targetRevision: "{{ .source.targetRevision }}"
+      sources:
+        - repoURL: "{{ .source.repoURL }}"
+          targetRevision: "{{ .source.targetRevision }}"
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{ .namespace }}"
