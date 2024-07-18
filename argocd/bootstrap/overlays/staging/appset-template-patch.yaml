@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/generators/0/git/files/0/path
-  value: "argocd/applications/*/staging/app-config.yaml"
-- op: replace
-  path: /spec/generators/0/git/files/1/path
   value: "argocd/infrastructure/*/staging/app-config.yaml"
+- op: replace
+  path: /spec/generators/1/git/files/0/path
+  value: "argocd/applications/*/staging/app-config.yaml"
