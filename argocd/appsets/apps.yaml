@@ -17,7 +17,6 @@ spec:
       name: "{{ .metadata.name }}"
       labels:
         app.kubernetes.io/name: "{{ .metadata.name }}"
-        app.kubernetes.io/managed-by: argocd
     spec:
       project: default
       source:
