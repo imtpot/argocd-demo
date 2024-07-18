@@ -46,6 +46,15 @@ spec:
           {{- if hasKey .source "values" }}
           helm:
             valuesObject: {{ toJson .source.values }}
+            {{- if hasKey . "values_source" }}
+            valueFiles:
+              - $values/{{ .values_source.path }}
+          {{- end }}
+        {{- if hasKey . "values_source" }}
+        - repoURL: {{ .values_source.repoURL }}
+          targetRevision: {{ .values_source.targetRevision }}
+          path: {{ .values_source.path }}
+          ref: values
           {{- end }}
         {{- if hasKey . "extra_source" }}
         - repoURL: {{ .extra_source.repoURL }}
