@@ -44,7 +44,6 @@ spec:
         {{- if hasKey .spec.source "values" }}
         helm:
           valuesObject: {{ toJson .spec.source.values }}
-          {{- end }}
         {{- end }}
     {{- else if hasKey .spec.source "path" }}
     spec:
