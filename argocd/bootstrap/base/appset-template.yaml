@@ -38,20 +38,14 @@ spec:
           prune: true
           selfHeal: true
   templatePatch: |
-    {{- if hasKey .source "chart" }}
     spec:
       source:
+        {{- if hasKey .source "chart" }}
         chart: '{{ .source.chart }}'
-        {{- if hasKey .source "values" }}
-        helm:
-          valuesObject: {{ toJson .source.values }}
-        {{- end }}
-    {{- else if hasKey .source "path" }}
-    spec:
-      source:
+        {{- else if hasKey .source "path" }}
         path: '{{ .source.path }}'
+        {{- end }}
         {{- if hasKey .source "values" }}
         helm:
           valuesObject: {{ toJson .source.values }}
         {{- end }}
-    {{- end }}
