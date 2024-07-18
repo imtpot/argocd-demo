@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/imtpot/argocd-demo.git
     targetRevision: appsets
-    path: argocd/appsets
+    path: argocd/base/
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd

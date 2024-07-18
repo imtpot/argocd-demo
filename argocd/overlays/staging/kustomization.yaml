@@ -5,6 +5,10 @@ resources:
   - ../../base/
 
 patches:
+  - path: root.yaml
+    target:
+      kind: Application
+      name: root
   - path: appset-template-patch.yaml
     target:
       kind: ApplicationSet
