@@ -41,16 +41,9 @@ spec:
     spec:
       source:
         chart: '{{ .spec.source.chart }}'
-        {{- if hasKey .spec.source "helm" }}
+        {{- if hasKey .spec.source "values" }}
         helm:
-          {{- if hasKey .spec.source.helm "valueFiles" }}
-          valueFiles:
-            {{- range .spec.source.helm.valueFiles }}
-            - '{{ . }}'
-            {{- end }}
-          {{- end }}
-          {{- if hasKey .spec.source.helm "values" }}
-          valuesObject: {{ toJson .spec.source.helm.values }}
+          valuesObject: {{ toJson .spec.source.values }}
           {{- end }}
         {{- end }}
     {{- else if hasKey .spec.source "path" }}

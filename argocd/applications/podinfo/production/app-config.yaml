@@ -6,9 +6,5 @@ spec:
     repoURL: https://stefanprodan.github.io/podinfo
     targetRevision: 6.7.0
     chart: podinfo
-    helm:
-      valueFiles:
-        - values.yaml
-      #   - values-prod.yaml
-      # values:
-      #   replicaCount: 3
+    values:
+      replicaCount: 3
