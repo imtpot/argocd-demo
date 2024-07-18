@@ -43,7 +43,7 @@ spec:
           {{- else if hasKey .source "path" }}
           path: {{ .source.path }}
           {{- end }}
-          {{- if hasKey .source "values" }}
+          {{- if hasKey .source "values" or hasKey . "values_source" }}
           helm:
             valuesObject: {{ toJson .source.values }}
             {{- if hasKey . "values_source" }}
