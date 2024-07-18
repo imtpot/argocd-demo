@@ -1,0 +1,9 @@
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  source:
+    type: helm
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 7.3.7
+    chart: argo-cd
