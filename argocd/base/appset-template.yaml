@@ -19,17 +19,17 @@ spec:
           - path: argocd/infrastructure/**/app-config.yaml
   template:
     metadata:
-      name: "{{ .metadata.name }}"
+      name: "{{ .name }}"
       labels:
-        app.kubernetes.io/name: "{{ .metadata.name }}"
+        app.kubernetes.io/name: "{{ .name }}"
     spec:
       project: default
       source:
-        repoURL: "{{ .spec.source.repoURL }}"
-        targetRevision: "{{ .spec.source.targetRevision }}"
+        repoURL: "{{ .source.repoURL }}"
+        targetRevision: "{{ .source.targetRevision }}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{ .metadata.namespace }}"
+        namespace: "{{ .namespace }}"
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
@@ -37,16 +37,16 @@ spec:
           prune: true
           selfHeal: true
   templatePatch: |
-    {{- if hasKey .spec.source "chart" }}
+    {{- if hasKey .source "chart" }}
     spec:
       source:
-        chart: '{{ .spec.source.chart }}'
-        {{- if hasKey .spec.source "values" }}
+        chart: '{{ .source.chart }}'
+        {{- if hasKey .source "values" }}
         helm:
-          valuesObject: {{ toJson .spec.source.values }}
+          valuesObject: {{ toJson .source.values }}
         {{- end }}
-    {{- else if hasKey .spec.source "path" }}
+    {{- else if hasKey .source "path" }}
     spec:
       source:
-        path: '{{ .spec.source.path }}'
+        path: '{{ .source.path }}'
     {{- end }}
