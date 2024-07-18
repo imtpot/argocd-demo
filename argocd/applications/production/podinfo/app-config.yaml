@@ -10,7 +10,12 @@ source:
         cpu: 2m
         memory: 32Mi
 
+values_source:
+  repoURL: https://github.com/imtpot/argocd-demo.git
+  targetRevision: appsets
+  path: argocd/applications/production/podinfo/values.yaml
+
 extra_source:
   repoURL: https://github.com/imtpot/argocd-demo.git
   targetRevision: appsets
-  extraFilesDir: argocd/applications/production/podinfo/extra/
+  path: argocd/applications/production/podinfo/extra/
