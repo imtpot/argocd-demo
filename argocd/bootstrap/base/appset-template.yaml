@@ -24,7 +24,7 @@ spec:
         app.kubernetes.io/name: "{{ .name }}"
     spec:
       project: default
-      sources: "{{ toJson .sources }}"
+      sources: "{{- range toJson .sources }}"
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{ .namespace }}"
