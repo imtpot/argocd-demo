@@ -35,15 +35,15 @@ spec:
           selfHeal: true
   templatePatch: |
     spec:
-      source:
-        repoURL: {{ .source.repoURL }}
-        targetRevision: {{ .source.targetRevision }}
-        {{- if hasKey .source "chart" }}
-        chart: {{ .source.chart }}
-        {{- else if hasKey .source "path" }}
-        path: {{ .source.path }}
-        {{- end }}
-        {{- if hasKey .source "values" }}
-        helm:
-          valuesObject: {{ toJson .source.values }}
-        {{- end }}
+      sources:
+        - repoURL: {{ .source.repoURL }}
+          targetRevision: {{ .source.targetRevision }}
+          {{- if hasKey .source "chart" }}
+          chart: {{ .source.chart }}
+          {{- else if hasKey .source "path" }}
+          path: {{ .source.path }}
+          {{- end }}
+          {{- if hasKey .source "values" }}
+          helm:
+            valuesObject: {{ toJson .source.values }}
+          {{- end }}
