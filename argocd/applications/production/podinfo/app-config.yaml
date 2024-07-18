@@ -7,7 +7,7 @@ source:
   values:
     replicaCount: 3
 
-extra_sources:
+extra_source:
   - repoURL: https://github.com/imtpot/argocd-demo.git
     targetRevision: appsets
     path: argocd/applications/production/podinfo/extra/
