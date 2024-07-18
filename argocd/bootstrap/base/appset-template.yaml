@@ -47,3 +47,8 @@ spec:
           helm:
             valuesObject: {{ toJson .source.values }}
           {{- end }}
+          {{- if append_self }}
+        - repoURL: {{ .generator.repoURL }}
+          targetRevision: {{ .generator.revision }}
+          path: {{ .path.path }}
+          {{- end }}
