@@ -12,7 +12,6 @@ spec:
     targetRevision: 6.7.0
     helm:
       valuesObject: {}
-    kustomize: {}
   destination:
     name: in-cluster
     namespace: podinfo
