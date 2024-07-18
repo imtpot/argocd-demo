@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: flexible-apps
+  name: apps
   namespace: argocd
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/your-org/your-repo.git
-        revision: main
+        repoURL: https://github.com/imtpot/argocd-demo.git
+        revision: appsets
         files:
           - path: "apps/**/app-config.yaml"
   template:
