@@ -22,7 +22,7 @@ spec:
         targetRevision: "{{ .spec.source.targetRevision }}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{ .spec.destination.namespace }}"
+        namespace: "{{ .metadata.namespace }}"
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
