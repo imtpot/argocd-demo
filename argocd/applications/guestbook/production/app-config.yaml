@@ -4,3 +4,5 @@ source:
   repoURL: https://github.com/argoproj/argocd-example-apps/
   targetRevision: HEAD
   path: guestbook
+  values:
+    replicaCount: 3
