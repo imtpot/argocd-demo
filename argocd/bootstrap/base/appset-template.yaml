@@ -40,11 +40,11 @@ spec:
     spec:
       sources:
         {{- if hasKey .source "chart" }}
-        chart: '{{ .source.chart }}'
+        - chart: '{{ .source.chart }}'
         {{- else if hasKey .source "path" }}
-        path: '{{ .source.path }}'
+        - path: '{{ .source.path }}'
         {{- end }}
         {{- if hasKey .source "values" }}
-        helm:
-          valuesObject: {{ toJson .source.values }}
+          helm:
+            valuesObject: {{ toJson .source.values }}
         {{- end }}
