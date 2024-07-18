@@ -1,5 +1,0 @@
-repoUrl: https://stefanprodan.github.io/podinfo
-chart: podinfo
-revision: 6.7.0
-values:
-  replicaCount: 4

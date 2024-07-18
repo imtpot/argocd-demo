@@ -1,0 +1,16 @@
+metadata:
+  name: podinfo
+spec:
+  source:
+    type: helm
+    repoURL: https://stefanprodan.github.io/podinfo
+    targetRevision: 6.7.0
+    chart: nginx
+    helm:
+      # valueFiles:
+      #   - values.yaml
+      #   - values-prod.yaml
+      values: |
+        replicaCount: 3
+  destination:
+    namespace: podinfo

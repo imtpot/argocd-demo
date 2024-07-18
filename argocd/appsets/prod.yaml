@@ -1,31 +1,42 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: prod
+  name: flexible-apps
   namespace: argocd
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: https://github.com/imtpot/argocd-demo.git
-        revision: appsets
+        repoURL: https://github.com/your-org/your-repo.git
+        revision: main
         files:
-          - path: argocd/apps/**/values.yaml
+          - path: "apps/**/app-config.yaml"
   template:
     metadata:
-      name: "{{index .path.segments 1}}-{{index .path.segments 3}}"
+      name: "{{.metadata.name}}"
     spec:
       project: default
       source:
-        repoURL: "{{ repoUrl }}"
-        chart: "{{ chart }}"
-        targetRevision: "{{ targetRevision }}"
+        repoURL: "{{.spec.source.repoURL}}"
+        targetRevision: "{{.spec.source.targetRevision}}"
+        {{if eq .spec.source.type "helm"}}
+        chart: "{{.spec.source.chart}}"
         helm:
-          valuesObject: "{{ values }}"
+          valueFiles:
+            {{range .spec.source.helm.valueFiles}}
+            - "{{.}}"
+            {{end}}
+          {{if .spec.source.helm.values}}
+          values: |
+            {{.spec.source.helm.values | nindent 12}}
+          {{end}}
+        {{else}}
+        path: "{{.spec.source.path}}"
+        {{end}}
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{ namespace }}"
+        namespace: "{{.spec.destination.namespace}}"
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
