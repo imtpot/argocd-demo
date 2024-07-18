@@ -47,7 +47,7 @@ spec:
           helm:
             valuesObject: {{ toJson .source.values }}
           {{- end }}
-          {{- if hasKey . "extra_source" }}
+        {{- if hasKey . "extra_source" }}
         - repoURL: {{ .extra_source.repoURL }}
           targetRevision: {{ .extra_source.targetRevision }}
           path: {{ .extra_source.path }}
