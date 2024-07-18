@@ -1,0 +1,4 @@
+apiVersion: namespace/v1
+kind: Namespace
+metadata:
+  name: guestbook-2

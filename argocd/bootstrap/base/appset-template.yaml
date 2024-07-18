@@ -10,11 +10,15 @@ spec:
     - git:
         repoURL: https://github.com/imtpot/argocd-demo.git
         revision: appsets
+        directories:
+          - path: argocd/infrastructure/**/
         files:
           - path: argocd/infrastructure/**/app-config.yaml
     - git:
         repoURL: https://github.com/imtpot/argocd-demo.git
         revision: appsets
+        directories:
+          - path: argocd/applications/**/
         files:
           - path: argocd/applications/**/app-config.yaml
 
@@ -35,7 +39,6 @@ spec:
         syncOptions:
           - CreateNamespace=true
         automated:
-          prune: true
           selfHeal: true
   templatePatch: |
     spec:
