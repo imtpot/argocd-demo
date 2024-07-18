@@ -38,7 +38,7 @@ spec:
           selfHeal: true
   templatePatch: |
     spec:
-      source:
+      sources:
         {{- if hasKey .source "chart" }}
         chart: '{{ .source.chart }}'
         {{- else if hasKey .source "path" }}
