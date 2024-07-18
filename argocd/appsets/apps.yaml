@@ -43,8 +43,7 @@ spec:
             {{- end }}
           {{- end }}
           {{- if hasKey .spec.source.helm "values" }}
-          values: |
-            {{ .spec.source.helm.values | nindent 12 }}
+          valuesObject: {{ toJson .spec.source.helm.values }}
           {{- end }}
         {{- end }}
     {{- else if hasKey .spec.source "path" }}
