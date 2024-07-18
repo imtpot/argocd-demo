@@ -57,9 +57,9 @@ spec:
         - repoURL: {{ .values_source.repoURL }}
           targetRevision: {{ .values_source.targetRevision }}
           ref: values
-          {{- end }}
+        {{- end }}
         {{- if hasKey . "extra_source" }}
         - repoURL: {{ .extra_source.repoURL }}
           targetRevision: {{ .extra_source.targetRevision }}
           path: {{ .extra_source.path }}
-          {{- end }}
+        {{- end }}
