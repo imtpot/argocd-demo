@@ -5,4 +5,5 @@ sources:
     targetRevision: 6.7.0
     chart: podinfo
     values:
-      replicaCount: 3
+      valuesObject:
+        replicaCount: 3
