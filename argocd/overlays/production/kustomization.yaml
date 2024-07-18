@@ -5,7 +5,7 @@ resources:
   - ../../base/
 
 patches:
-  - path: root.yaml
+  - path: root-patch.yaml
     target:
       kind: Application
       name: root
