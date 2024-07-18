@@ -24,7 +24,9 @@ spec:
         app.kubernetes.io/name: "{{ .name }}"
     spec:
       project: default
-      sources: "{{- range toJson .sources }}"
+      source:
+        repoURL: "{{ .source.repoURL }}"
+        targetRevision: "{{ .source.targetRevision }}"
       destination:
         server: https://kubernetes.default.svc
         namespace: "{{ .namespace }}"
@@ -34,15 +36,15 @@ spec:
         automated:
           prune: true
           selfHeal: true
-  # templatePatch: |
-  #   spec:
-  #     sources:
-  #       {{- if hasKey .sources "chart" }}
-  #       chart: '{{ .sources.chart }}'
-  #       {{- else if hasKey .sources "path" }}
-  #       path: '{{ .sources.path }}'
-  #       {{- end }}
-  #       {{- if hasKey .sources "values" }}
-  #       helm:
-  #         valuesObject: {{ toJson .source.values }}
-  #       {{- end }}
+  templatePatch: |
+    spec:
+      source:
+        {{- if hasKey .source "chart" }}
+        chart: '{{ .source.chart }}'
+        {{- else if hasKey .source "path" }}
+        path: '{{ .source.path }}'
+        {{- end }}
+        {{- if hasKey .source "values" }}
+        helm:
+          valuesObject: {{ toJson .source.values }}
+        {{- end }}
