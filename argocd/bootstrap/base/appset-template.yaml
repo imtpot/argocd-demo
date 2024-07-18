@@ -49,6 +49,7 @@ spec:
             {{- if hasKey . "values_source" }}
             valueFiles:
               - $values/{{ .values_source.path }}
+            {{- end }}
           {{- end }}
         {{- if hasKey . "values_source" }}
         - repoURL: {{ .values_source.repoURL }}
