@@ -4,8 +4,11 @@ source:
   repoURL: https://stefanprodan.github.io/podinfo
   targetRevision: 6.7.0
   chart: podinfo
-  values:
-    replicaCount: 3
+
+values_sources:
+  repoURL: https://github.com/imtpot/argocd-demo.git
+  targetRevision: appsets
+  path: argocd/applications/production/podinfo/values.yaml
 
 extra_source:
   repoURL: https://github.com/imtpot/argocd-demo.git
