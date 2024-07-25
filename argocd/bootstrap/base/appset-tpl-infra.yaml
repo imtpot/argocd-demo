@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/imtpot/argocd-demo.git
         revision: appsets
         files:
-          - path: argocd/infrastructure/base/**/app-config.yaml
+          - path: argocd/infrastructure/**/app-config.yaml
   template:
     metadata:
       name: "{{ .name }}"
