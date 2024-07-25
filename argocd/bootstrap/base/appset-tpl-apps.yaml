@@ -40,7 +40,7 @@ spec:
           {{- if or (hasKey . "values") (hasKey . "values_source") }}
           helm:
             {{- if hasKey . "values" }}
-            valuesObject: {{ toYaml .values }}
+            valuesObject: {{ toJson .values }}
             {{- end }}
             {{- if hasKey . "values_source" }}
             valueFiles:
@@ -58,5 +58,5 @@ spec:
           path: {{ .extra_source.path }}
         {{- end }}
         {{ if hasKey . "ignoreDifferences" }}
-        ignoreDifferences: {{ toYaml .ignoreDifferences }}
+        ignoreDifferences: {{ toJson .ignoreDifferences }}
         {{- end }}
