@@ -57,3 +57,6 @@ spec:
           targetRevision: {{ .extra_source.targetRevision }}
           path: {{ .extra_source.path }}
         {{- end }}
+        {{ if hasKey . "ignoreDifferences" }}
+        ignoreDifferences: {{ toJson .ignoreDifferences }}
+        {{- end }}
