@@ -1,6 +1,6 @@
 name: argocd
 namespace: argocd
 source:
-  repoURL: https://argoproj.github.io/argo-helm
-  targetRevision: 7.3.8
-  chart: argo-cd
+  repoURL: https://github.com/imtpot/argocd-demo.git
+  targetRevision: vault
+  path: argocd/infrastructure/production/argocd/
