@@ -9,7 +9,7 @@ patches:
     target:
       kind: Application
       name: root
-  - path: appset-template-patch.yaml
+  - path: appset-tpl-patch.yaml
     target:
       kind: ApplicationSet
-      name: appset-template
+      name: appset-tpl-*
