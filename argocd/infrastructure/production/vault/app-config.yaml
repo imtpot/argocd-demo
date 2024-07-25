@@ -1,9 +1,9 @@
-name: argocd
-namespace: argocd
+name: vault
+namespace: vault
 source:
-  repoURL: https://argoproj.github.io/argo-helm
-  targetRevision: 7.3.8
-  chart: argo-cd
+  repoURL: https://helm.releases.hashicorp.com
+  targetRevision: 0.28.1
+  chart: vault
 
 ignoreDifferences:
   - group: admissionregistration.k8s.io
