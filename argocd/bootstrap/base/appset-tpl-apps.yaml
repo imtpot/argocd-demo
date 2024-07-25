@@ -37,10 +37,10 @@ spec:
           {{- else if hasKey .source "path" }}
           path: {{ .source.path }}
           {{- end }}
-          {{- if or (hasKey .source "values") (hasKey . "values_source") }}
+          {{- if or (hasKey . "values") (hasKey . "values_source") }}
           helm:
-            {{- if hasKey .source "values" }}
-            valuesObject: {{ toJson .source.values }}
+            {{- if hasKey . "values" }}
+            valuesObject: {{ toJson .values }}
             {{- end }}
             {{- if hasKey . "values_source" }}
             valueFiles:
@@ -48,12 +48,12 @@ spec:
             {{- end }}
           {{- end }}
         {{- if hasKey . "values_source" }}
-        - repoURL: {{ .repoURL }}
-          targetRevision: {{ .revision }}
+        - repoURL: {{ .values_source.repoURL }}
+          targetRevision: {{ .values_source.targetRevision }}
           ref: values
         {{- end }}
         {{- if hasKey . "extra_source" }}
-        - repoURL: {{ .repoURL }}
-          targetRevision: {{ .revision }}
+        - repoURL: {{ .extra_source.repoURL }}
+          targetRevision: {{ .extra_source.targetRevision }}
           path: {{ .extra_source.path }}
         {{- end }}
