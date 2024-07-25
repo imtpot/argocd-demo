@@ -9,12 +9,12 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/imtpot/argocd-demo.git
-        revision: appsets
+        revision: vault
         files:
           - path: argocd/infrastructure/**/app-config.yaml
     - git:
         repoURL: https://github.com/imtpot/argocd-demo.git
-        revision: appsets
+        revision: vault
         files:
           - path: argocd/applications/**/app-config.yaml
   template:
