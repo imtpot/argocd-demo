@@ -12,4 +12,8 @@ patches:
   - path: appset-tpl-patch.yaml
     target:
       kind: ApplicationSet
-      name: appset-tpl-*
+      name: appset-tpl-infra
+  - path: appset-tpl-patch.yaml
+    target:
+      kind: ApplicationSet
+      name: appset-tpl-apps
