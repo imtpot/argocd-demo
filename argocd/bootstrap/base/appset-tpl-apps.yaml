@@ -48,12 +48,12 @@ spec:
             {{- end }}
           {{- end }}
         {{- if hasKey . "values_source" }}
-        - repoURL: {{ .values_source.repoURL }}
-          targetRevision: {{ .values_source.targetRevision }}
+        - repoURL: {{ .generators[0].git.repoURL }}
+          targetRevision: {{ .generators[0].git.revision }}
           ref: values
         {{- end }}
         {{- if hasKey . "extra_source" }}
-        - repoURL: {{ .extra_source.repoURL }}
-          targetRevision: {{ .extra_source.targetRevision }}
+        - repoURL: {{ .generators[0].git.repoURL }}
+          targetRevision: {{ .generators[0].git.revision }}
           path: {{ .extra_source.path }}
         {{- end }}
