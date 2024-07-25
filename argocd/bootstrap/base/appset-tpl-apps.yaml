@@ -58,5 +58,5 @@ spec:
           path: {{ .extra_source.path }}
         {{- end }}
         {{ if hasKey . "ignoreDifferences" }}
-        ignoreDifferences: {{ toJson .ignoreDifferences }}
-        {{- end }}
+      ignoreDifferences: {{ toJson .ignoreDifferences }}
+      {{- end }}
