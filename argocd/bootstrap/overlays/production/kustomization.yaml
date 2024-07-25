@@ -9,11 +9,11 @@ patches:
     target:
       kind: Application
       name: root
-  - path: appset-tpl-patch.yaml
+  - path: appset-tpl-infra-patch.yaml
     target:
       kind: ApplicationSet
       name: appset-tpl-infra
-  - path: appset-tpl-patch.yaml
+  - path: appset-tpl-apps-patch.yaml
     target:
       kind: ApplicationSet
       name: appset-tpl-apps
