@@ -10,3 +10,13 @@ ignoreDifferences:
     kind: MutatingWebhookConfiguration
     jqPathExpressions:
       - .webhooks[]?.clientConfig.caBundle
+
+values_source:
+  repoURL: https://github.com/imtpot/argocd-demo.git
+  targetRevision: vault
+  path: argocd/infrastructure/production/vault/values.yaml
+
+extra_source:
+  repoURL: https://github.com/imtpot/argocd-demo.git
+  targetRevision: vault
+  path: argocd/infrastructure/production/vault/extra/
