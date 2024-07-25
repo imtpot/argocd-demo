@@ -4,14 +4,12 @@ source:
   repoURL: https://stefanprodan.github.io/podinfo
   targetRevision: 6.7.0
   chart: podinfo
-  values:
-    resources:
-      limits:
-        cpu: 2m
-        memory: 32Mi
 
 values:
-  replicaCount: 2
+  resources:
+    limits:
+      cpu: 2m
+      memory: 32Mi
 
 extra_source:
   repoURL: https://github.com/imtpot/argocd-demo.git
