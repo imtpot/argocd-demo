@@ -8,4 +8,4 @@ releases:
     chart: podinfo/podinfo
     values:
       - replicaCount: 2
-      - logLevel: <path:secret/data/test_token#token>
+      - values.yaml

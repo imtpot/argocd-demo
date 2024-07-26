@@ -1,2 +1,2 @@
 # replicaCount: <path:secret/data/podinfo#repl>
-logLevel: debug
+logLevel: <path:secret/data/test_token#token>
