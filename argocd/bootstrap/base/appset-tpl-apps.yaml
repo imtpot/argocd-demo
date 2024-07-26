@@ -38,27 +38,19 @@ spec:
           path: {{ .source.path }}
           {{- end }}
           {{- if or (hasKey . "values") (hasKey . "values_source") }}
-          plugin:
-            name: lovely-vault-plugin
-            env:
-              - name: LOVELY_HELM_PATCH
-                value: |
-                  {{ toJson .values }}
-          # helm:
-          #   {{- if hasKey . "values" }}
-          #   valuesObject: {{ toJson .values }}
-          #   {{- end }}
-          #   {{- if hasKey . "values_source" }}
-          #   valueFiles:
-          #     - $values/{{ .values_source.path }}
-          #   {{- end }}
+          helm:
+            {{- if hasKey . "values" }}
+            valuesObject: {{ toJson .values }}
+            {{- end }}
+            {{- if hasKey . "values_source" }}
+            valueFiles:
+              - $values/{{ .values_source.path }}
+            {{- end }}
           {{- end }}
         {{- if hasKey . "values_source" }}
         - repoURL: {{ .values_source.repoURL }}
           targetRevision: {{ .values_source.targetRevision }}
           ref: values
-          plugin:
-            name: lovely-vault-plugin
         {{- end }}
         {{- if hasKey . "extra_source" }}
         - repoURL: {{ .extra_source.repoURL }}
