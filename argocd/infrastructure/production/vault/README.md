@@ -3,6 +3,7 @@
 ```bash
 vault operator init  -key-shares=1 -key-threshold=1
 vault operator unseal
+vault login
 vault auth enable kubernetes
 vault write auth/kubernetes/config \
     kubernetes_host=https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT
@@ -33,4 +34,5 @@ vault write auth/kubernetes/role/argocd-repo-server \
 ```bash
 vault secrets enable -path=secret kv-v2
 vault kv put secret/test_token token=test
+vault kv put secret/podinfo repl=3
 ```
