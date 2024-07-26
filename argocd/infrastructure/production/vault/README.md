@@ -12,8 +12,8 @@ vault write auth/kubernetes/config \
 ### Create Policy
 
 ```bash
-vault policy write argocd - <<EOF
-path "secret/data" {
+vault policy write argocd-repo-server - <<EOF
+path "secret/data/*" {
   capabilities = ["read"]
 }
 EOF
@@ -22,10 +22,10 @@ EOF
 ### Create Role
 
 ```bash
-vault write auth/kubernetes/role/argocd \
+vault write auth/kubernetes/role/argocd-repo-server \
     bound_service_account_names=argocd-repo-server \
     bound_service_account_namespaces=argocd \
-    policies=argocd \
+    policies=argocd-repo-server \
     ttl=24h
 ```
 
