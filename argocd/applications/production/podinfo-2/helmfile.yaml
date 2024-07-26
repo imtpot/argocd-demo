@@ -6,5 +6,5 @@ releases:
   - name: podinfo-2
     namespace: podinfo-2
     chart: podinfo
-    valuesFiles:
+    values:
       - values.yaml
