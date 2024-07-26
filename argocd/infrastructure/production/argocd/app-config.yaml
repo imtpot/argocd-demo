@@ -45,7 +45,7 @@ values:
       stringData:
         AVP_TYPE: vault
         AVP_AUTH_TYPE: k8s
-        AVP_K8S_ROLE: argocd-repo-server
+        AVP_K8S_ROLE: argocd
         VAULT_ADDR: http://vault.vault:8200
   config:
     exec.enabled: true
