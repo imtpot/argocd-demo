@@ -42,8 +42,7 @@ spec:
             name: lovely-vault-plugin
             env:
               - name: HELM_VALUES
-                value: |
-                  {{ .values }}
+                value: {{ .values }}
           # helm:
           #   {{- if hasKey . "values" }}
           #   valuesObject: {{ toJson .values }}
