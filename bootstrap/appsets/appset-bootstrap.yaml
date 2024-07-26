@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: appset-applications
+  name: appset-bootstrap
   namespace: argocd
 spec:
   goTemplate: true
