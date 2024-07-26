@@ -3,9 +3,8 @@ repositories:
     url: https://stefanprodan.github.io/podinfo
 
 releases:
-  - name: podinfo-2
-    namespace: podinfo-2
+  - name: podinfo
+    namespace: podinfo
     chart: podinfo/podinfo
     values:
-      - replicaCount: 2
       - values.yaml
