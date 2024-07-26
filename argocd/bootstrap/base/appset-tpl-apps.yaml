@@ -56,8 +56,6 @@ spec:
         - repoURL: {{ .extra_source.repoURL }}
           targetRevision: {{ .extra_source.targetRevision }}
           path: {{ .extra_source.path }}
-          plugin:
-            name: lovely-vault-plugin
         {{- end }}
         {{ if hasKey . "ignoreDifferences" }}
       ignoreDifferences: {{ toJson .ignoreDifferences }}

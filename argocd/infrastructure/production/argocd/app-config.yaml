@@ -47,5 +47,10 @@ values:
         AVP_AUTH_TYPE: k8s
         AVP_K8S_ROLE: argocd-repo-server
         VAULT_ADDR: http://vault.vault:8200
-  config:
+  configs:
     exec.enabled: true
+
+extra_source:
+  repoURL: https://github.com/argoproj-labs/argocd-vault-plugin.git
+  targetRevision: v1.18.1
+  path: manifests/cmp-sidecar
