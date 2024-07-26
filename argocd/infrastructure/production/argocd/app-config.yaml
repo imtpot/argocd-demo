@@ -6,6 +6,7 @@ source:
   chart: argo-cd
 
 values:
+  # Add lovely-vault-plugin to the repo-server pod
   repoServer:
     extraContainers:
       - name: lovely-plugin
