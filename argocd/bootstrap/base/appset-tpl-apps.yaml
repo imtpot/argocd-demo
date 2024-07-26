@@ -45,8 +45,6 @@ spec:
             {{- if hasKey . "values_source" }}
             valueFiles:
               - $values/{{ .values_source.path }}
-          plugin:
-            name: lovely-vault-plugin
             {{- end }}
           {{- end }}
         {{- if hasKey . "values_source" }}
