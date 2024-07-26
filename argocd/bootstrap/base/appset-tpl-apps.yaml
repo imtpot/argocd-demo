@@ -41,7 +41,7 @@ spec:
           plugin:
             name: lovely-vault-plugin
             env:
-              - name: LOVELY_HELM_VALUES
+              - name: LOVELY_HELM_PATCH
                 value: |
                   {{ toJson .values }}
           # helm:
