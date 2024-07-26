@@ -5,7 +5,7 @@ source:
   targetRevision: 6.7.0
   chart: podinfo
 
-values:
+values: |
   replicaCount: 3
   resources:
     limits:

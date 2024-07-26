@@ -43,7 +43,7 @@ spec:
             env:
               - name: HELM_VALUES
                 value: |
-                  {{ fromYamlArray .values }}
+                  {{ .values }}
           # helm:
           #   {{- if hasKey . "values" }}
           #   valuesObject: {{ toJson .values }}
