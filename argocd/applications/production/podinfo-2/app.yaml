@@ -11,6 +11,8 @@ spec:
     repoURL: https://github.com/imtpot/argocd-demo.git
     targetRevision: appsets
     path: argocd/applications/production/podinfo-2
+    plugin:
+      name: lovely-vault-plugin
   destination:
     server: https://kubernetes.default.svc
     namespace: podinfo
