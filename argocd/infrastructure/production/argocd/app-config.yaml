@@ -11,7 +11,7 @@ values:
     - kind: Secret
       apiVersion: v1
       metadata:
-        name: vault-credentials
+        name: vault-env
       type: Opaque
       stringData:
         AVP_TYPE: vault
@@ -19,9 +19,6 @@ values:
         AVP_K8S_ROLE: argocd-repo-server
         VAULT_ADDR: http://vault.vault:8200
   repoServer:
-    envFrom:
-      - secretRef:
-          name: vault-credentials
     volumes:
       - configMap:
           name: cmp-plugin
@@ -68,6 +65,10 @@ values:
             subPath: argocd-vault-plugin
             mountPath: /usr/local/bin/argocd-vault-plugin
 
+        envFrom:
+          - secretRef:
+              name: vault-env
+
       # argocd-vault-plugin with Kustomize
       - name: avp-kustomize
         command: [/var/run/argocd/argocd-cmp-server]
@@ -93,6 +94,10 @@ values:
             subPath: argocd-vault-plugin
             mountPath: /usr/local/bin/argocd-vault-plugin
 
+        envFrom:
+          - secretRef:
+              name: vault-env
+
       # argocd-vault-plugin with plain YAML
       - name: avp
         command: [/var/run/argocd/argocd-cmp-server]
@@ -117,6 +122,11 @@ values:
           - name: custom-tools
             subPath: argocd-vault-plugin
             mountPath: /usr/local/bin/argocd-vault-plugin
+
+        envFrom:
+          - secretRef:
+              name: vault-env
+
   configs:
     cm:
       exec.enabled: true
