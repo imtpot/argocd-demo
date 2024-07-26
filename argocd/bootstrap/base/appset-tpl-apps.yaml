@@ -39,11 +39,12 @@ spec:
           {{- end }}
           {{- if or (hasKey . "values") (hasKey . "values_source") }}
           plugin:
+            name: lovely-vault-plugin
             env:
               - name: HELM_VALUES
                 value: |
                   {{- if hasKey . "values" }}
-                  {{ toJson .values }}
+                  {{ .values }}
                   {{- end }}
           # helm:
           #   {{- if hasKey . "values" }}
