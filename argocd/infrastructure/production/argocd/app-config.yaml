@@ -43,3 +43,16 @@ values:
         VAULT_ADDR: http://vault.vault:8200
   configs:
     exec.enabled: true
+    cmp:
+      create: true
+      plugins:
+        lovely-vault-plugin:
+          init:
+            command: [sh, -c]
+            args: ["helm dependency build"]
+          generate:
+            command: ["sh", "-c"]
+            args:
+              [
+                "helm template $ARGOCD_APP_NAME . --include-crds | argocd-vault-plugin generate -",
+              ]
