@@ -10,7 +10,7 @@ values:
   repoServer:
     volumes:
       - configMap:
-          name: argocd-cmp-cm
+          name: cmp-plugin
         name: cmp-plugin
       - name: custom-tools
         emptyDir: {}
@@ -46,7 +46,7 @@ values:
 
           # Register plugins into sidecar
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: argocd-vault-plugin-helm.yaml
+            subPath: avp-helm.yaml
             name: cmp-plugin
 
           # Important: Mount tools into $PATH
@@ -71,7 +71,7 @@ values:
 
           # Register plugins into sidecar
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: argocd-vault-plugin-kustomize.yaml
+            subPath: avp-kustomize.yaml
             name: cmp-plugin
 
           # Important: Mount tools into $PATH
@@ -96,7 +96,7 @@ values:
 
           # Register plugins into sidecar
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: argocd-vault-plugin.yaml
+            subPath: avp.yaml
             name: cmp-plugin
 
           # Important: Mount tools into $PATH
