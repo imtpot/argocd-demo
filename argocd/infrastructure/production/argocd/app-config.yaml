@@ -49,7 +49,8 @@ values:
         AVP_K8S_ROLE: argocd-repo-server
         VAULT_ADDR: http://vault.vault:8200
   configs:
-    exec.enabled: true
+    cm:
+      exec.enabled: true
     cmp:
       create: true
       plugins:
