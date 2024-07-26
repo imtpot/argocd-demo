@@ -1,1 +1,1 @@
-logLevel: <path:secret/data/podinfo#repl>
+replicaCount: 2

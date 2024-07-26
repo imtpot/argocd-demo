@@ -6,7 +6,6 @@ source:
   chart: podinfo
 
 values:
-  replicaCount: 3
   resources:
     limits:
       cpu: 2m
