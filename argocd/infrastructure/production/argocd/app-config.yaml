@@ -33,6 +33,9 @@ values:
       # A temporary directory for the tool to work in.
       - emptyDir: {}
         name: lovely-tmp
+    envFrom:
+      - secretRef:
+          name: vault-env
   extraObjects:
     - kind: Secret
       apiVersion: v1
