@@ -38,14 +38,21 @@ spec:
           path: {{ .source.path }}
           {{- end }}
           {{- if or (hasKey . "values") (hasKey . "values_source") }}
-          helm:
-            {{- if hasKey . "values" }}
-            valuesObject: {{ toJson .values }}
-            {{- end }}
-            {{- if hasKey . "values_source" }}
-            valueFiles:
-              - $values/{{ .values_source.path }}
-            {{- end }}
+          plugin:
+            env:
+              - name: HELM_VALUES
+                value: |
+                  {{- if hasKey . "values" }}
+                  {{ toJson .values }}
+                  {{- end }}
+          # helm:
+          #   {{- if hasKey . "values" }}
+          #   valuesObject: {{ toJson .values }}
+          #   {{- end }}
+          #   {{- if hasKey . "values_source" }}
+          #   valueFiles:
+          #     - $values/{{ .values_source.path }}
+          #   {{- end }}
           {{- end }}
         {{- if hasKey . "values_source" }}
         - repoURL: {{ .values_source.repoURL }}
