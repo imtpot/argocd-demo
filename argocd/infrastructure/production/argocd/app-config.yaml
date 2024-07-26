@@ -25,8 +25,15 @@ values:
           - mountPath: /tmp
             name: lovely-tmp
     volumes:
-      - emptyDir: {}
-        name: lovely-tmp
+      - name: lovely-tmp
+        emptyDir: {}
+      - name: argocd-cmp-cm
+        configMap:
+          name: argocd-cmp-cm
+    volumeMounts:
+      - mountPath: /home/argocd/cmp-server/config/plugin.yaml
+        subPath: lovely-vault-plugin.yaml
+        name: argocd-cmp-cm
     envFrom:
       - secretRef:
           name: vault-credentials
