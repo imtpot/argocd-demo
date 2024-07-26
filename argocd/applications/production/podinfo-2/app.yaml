@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo-2
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: podinfo-2
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/imtpot/argocd-demo.git
+    targetRevision: appsets
+    path: argocd/applications/production/podinfo-2
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: podinfo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
