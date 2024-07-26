@@ -1,2 +1,2 @@
-replicaCount: <path:secret/data/podinfo#repl>
+# replicaCount: <path:secret/data/podinfo#repl>
 logLevel: debug

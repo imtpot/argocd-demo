@@ -7,4 +7,4 @@ releases:
     namespace: podinfo-2
     chart: podinfo/podinfo
     values:
-      - values.yaml
+      - replicaCount: <path:secret/data/podinfo#repl>
