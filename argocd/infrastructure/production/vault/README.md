@@ -1,7 +1,7 @@
 ### Init
 
 ```bash
-vault operator init
+vault operator init  -key-shares=1 -key-threshold=1
 vault operator unseal
 export SA_SECRET_NAME=$(kubectl get secrets -n vault --output=json \
     | jq -r '.items[].metadata | select(.name|startswith("vault-auth-")).name')
