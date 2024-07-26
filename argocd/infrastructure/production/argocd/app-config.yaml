@@ -49,8 +49,3 @@ values:
         VAULT_ADDR: http://vault.vault:8200
   configs:
     exec.enabled: true
-
-extra_source:
-  repoURL: https://github.com/argoproj-labs/argocd-vault-plugin.git
-  targetRevision: v1.18.1
-  path: manifests/cmp-sidecar
