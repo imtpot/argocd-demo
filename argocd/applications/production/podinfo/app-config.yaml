@@ -10,6 +10,8 @@ values:
     limits:
       cpu: 2m
       memory: 32Mi
+  podAnnonations:
+    app.kubernetes.io/secret-annotation: <path:secret/data/test_token>
 
 values_source:
   repoURL: https://github.com/imtpot/argocd-demo.git

@@ -29,7 +29,7 @@ values:
         name: lovely-tmp
     envFrom:
       - secretRef:
-          name: vault-env
+          name: vault-credentials
   extraObjects:
     - kind: Secret
       apiVersion: v1
