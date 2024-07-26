@@ -3,10 +3,9 @@
 ```bash
 vault operator init  -key-shares=1 -key-threshold=1
 vault operator unseal
+vault auth enable kubernetes
 vault write auth/kubernetes/config \
-    token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
-    kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443" \
-    kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    kubernetes_host=https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT
 ```
 
 ### Create Policy
@@ -32,4 +31,6 @@ vault write auth/kubernetes/role/argocd-repo-server \
 ### Test
 
 ```bash
+vault secrets enable -path=secret kv-v2
 vault kv put secret/test_token token=test
+```
