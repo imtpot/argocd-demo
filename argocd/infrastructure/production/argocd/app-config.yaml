@@ -103,3 +103,57 @@ values:
           - name: custom-tools
             subPath: argocd-vault-plugin
             mountPath: /usr/local/bin/argocd-vault-plugin
+  configs:
+    cm:
+      exec.enabled: true
+    cmp:
+      create: true
+      plugins:
+        argocd-vault-plugin-kustomize:
+          spec:
+            allowConcurrency: true
+            discover:
+              find:
+                command:
+                  - find
+                  - "."
+                  - -name
+                  - kustomization.yaml
+            generate:
+              command:
+                - sh
+                - "-c"
+                - "kustomize build . | argocd-vault-plugin generate -"
+            lockRepo: false
+        argocd-vault-plugin-helm:
+          spec:
+            allowConcurrency: true
+            discover:
+              find:
+                command:
+                  - sh
+                  - "-c"
+                  - "find . -name 'Chart.yaml' && find . -name 'values.yaml'"
+            generate:
+              command:
+                - sh
+                - "-c"
+                - |
+                  helm template $ARGOCD_APP_NAME -n $ARGOCD_APP_NAMESPACE ${ARGOCD_ENV_HELM_ARGS} . |
+                  argocd-vault-plugin generate -
+            lockRepo: false
+        argocd-vault-plugin:
+          spec:
+            allowConcurrency: true
+            discover:
+              find:
+                command:
+                  - sh
+                  - "-c"
+                  - "find . -name '*.yaml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."
+            generate:
+              command:
+                - argocd-vault-plugin
+                - generate
+                - "."
+            lockRepo: false
