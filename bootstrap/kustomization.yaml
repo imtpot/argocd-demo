@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - root.yaml
   - appsets/
+  - argocd/
