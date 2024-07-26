@@ -46,7 +46,7 @@ values:
 
           # Register plugins into sidecar
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: avp-helm.yaml
+            subPath: argocd-vault-plugin-helm.yaml
             name: cmp-plugin
 
           # Important: Mount tools into $PATH
@@ -71,7 +71,7 @@ values:
 
           # Register plugins into sidecar
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: avp-kustomize.yaml
+            subPath: argocd-vault-plugin-kustomize.yaml
             name: cmp-plugin
 
           # Important: Mount tools into $PATH
@@ -96,7 +96,7 @@ values:
 
           # Register plugins into sidecar
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: avp.yaml
+            subPath: argocd-vault-plugin.yaml
             name: cmp-plugin
 
           # Important: Mount tools into $PATH
