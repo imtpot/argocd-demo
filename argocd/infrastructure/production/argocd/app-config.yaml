@@ -39,5 +39,5 @@ values:
         name: vault-env
       type: Opaque
       stringData:
-        VAULT_ADDR: https://vault.mycompany.com/
+        VAULT_ADDR: https://vault.vault:8200
         VAULT_AUTH_PATH: kubernetes
