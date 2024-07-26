@@ -13,6 +13,9 @@ spec:
     path: argocd/applications/production/podinfo-2
     plugin:
       name: lovely-vault-plugin
+      env:
+        - name: LOVELY_HELM_VALUES
+          value: ./values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: podinfo
