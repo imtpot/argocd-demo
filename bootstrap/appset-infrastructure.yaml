@@ -32,12 +32,12 @@ spec:
       source:
         repoURL: {{ .source.repoURL }}
         targetRevision: {{ .source.targetRevision }}
-        {{- if hasKey .source "chart" }}
+        # {{- if hasKey .source "chart" }}
         chart: {{ .source.chart }}
-        {{- else if hasKey .source "path" }}
-        path: {{ .source.path }}
-        {{- end }}
-        {{- if and (hasKey .source "chart") (hasKey . "values") }}
-        helm:
-          valuesObject: {{ toJson .source.values }}
-        {{- end }}
+        # {{- else if hasKey .source "path" }}
+        # path: {{ .source.path }}
+        # {{- end }}
+        # {{- if and (hasKey .source "chart") (hasKey . "values") }}
+        # helm:
+        #   valuesObject: {{ toJson .source.values }}
+        # {{- end }}
