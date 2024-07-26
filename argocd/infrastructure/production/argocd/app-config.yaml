@@ -56,3 +56,9 @@ values:
               [
                 "helm template $ARGOCD_APP_NAME . --include-crds | argocd-vault-plugin generate -",
               ]
+          discover:
+            find:
+              command:
+                - sh
+                - "-c"
+                - "find . -maxdepth 1 -name 'Chart.yaml'"
