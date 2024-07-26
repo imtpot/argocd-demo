@@ -10,12 +10,11 @@ values:
     limits:
       cpu: 2m
       memory: 32Mi
-  replicaCount: <path:secret/data/podinfo#repl>
 
-# values_source:
-#   repoURL: https://github.com/imtpot/argocd-demo.git
-#   targetRevision: appsets
-#   path: argocd/applications/production/podinfo/values.yaml
+values_source:
+  repoURL: https://github.com/imtpot/argocd-demo.git
+  targetRevision: appsets
+  path: argocd/applications/production/podinfo/values.yaml
 
 extra_source:
   repoURL: https://github.com/imtpot/argocd-demo.git
