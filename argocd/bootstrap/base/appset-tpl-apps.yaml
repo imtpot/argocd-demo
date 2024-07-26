@@ -41,7 +41,7 @@ spec:
           plugin:
             name: lovely-vault-plugin
             env:
-              - name: HELM_VALUES
+              - name: LOVELY_HELM_VALUES
                 value: |
                   replicaCount: 3
           # helm:
