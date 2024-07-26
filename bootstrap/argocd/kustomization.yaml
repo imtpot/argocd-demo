@@ -4,3 +4,10 @@ namespace: argocd
 
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.11.7/manifests/install.yaml
+  - vault-env.yaml
+
+patches:
+  - path: argocd-lovely-plugin.yaml
+    target:
+      kind: Deployment
+      name: argocd-repo-server
