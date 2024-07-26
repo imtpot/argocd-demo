@@ -55,7 +55,7 @@ def decode_password(password: Output[str]) -> Output[str]:
 def apply_kustomize(cluster: KindCluster, overlay: str, depends_on=None):
     return local.Command(
         f"apply-kustomize-{cluster._name}",
-        create=f"kubectl apply -k argocd/bootstrap/overlays/{overlay} --context kind-{cluster._name}",
+        create=f"kubectl apply -k argocd/bootstrap/{overlay} --context kind-{cluster._name}",
         opts=ResourceOptions(depends_on=depends_on)
     )
 

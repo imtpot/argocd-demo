@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: appset-applications
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - git:
+        repoURL: https://github.com/imtpot/argocd-demo.git
+        revision: helmfile+appsets
+        files:
+          - path: applications/**/app-config.yaml
+  template:
+    metadata:
+      name: "{{ .name }}"
+      labels:
+        app.kubernetes.io/name: "{{ .name }}"
+    spec:
+      source:
+        repoURL: https://github.com/imtpot/argocd-demo.git
+        targetRevision: helmfile+appsets
+      project: default
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{ .namespace }}"
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          selfHeal: true
