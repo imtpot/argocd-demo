@@ -1,1 +1,2 @@
-recplicaCount: 2
+replicaCount: 3
+logLevel: debug
