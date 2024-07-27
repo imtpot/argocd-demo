@@ -21,6 +21,7 @@ spec:
       source:
         repoURL: https://github.com/imtpot/argocd-demo.git
         targetRevision: helmfile+appsets
+        path: applications/base/{{ .name }}/
       project: default
       destination:
         server: https://kubernetes.default.svc
