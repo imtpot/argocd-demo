@@ -3,5 +3,5 @@ kind: Kustomization
 
 resources:
   - appset-bootstrap.yaml
-  - appset-infrastructure.yaml
-  # - appset-applications.yaml
+  # - appset-infrastructure.yaml
+  - appset-applications.yaml
