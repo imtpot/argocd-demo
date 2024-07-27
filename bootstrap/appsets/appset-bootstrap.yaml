@@ -42,5 +42,5 @@ spec:
         {{- end }}
         {{- if and (hasKey .source "chart") (hasKey . "values") }}
         helm:
-          valuesObject: {{ toJson .source.values }}
+          valuesObject: {{ toJson .values }}
         {{- end }}
