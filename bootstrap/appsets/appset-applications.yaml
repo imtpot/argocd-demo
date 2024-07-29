@@ -22,6 +22,8 @@ spec:
         repoURL: https://github.com/imtpot/argocd-demo.git
         targetRevision: helmfile+appsets
         path: applications/base/{{ .name }}/
+        plugin:
+          name: lovely-vault-plugin
       project: default
       destination:
         server: https://kubernetes.default.svc
