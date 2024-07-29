@@ -3,4 +3,3 @@ kind: Kustomization
 
 resources:
   - root.yaml
-  - appsets/

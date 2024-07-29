@@ -3,8 +3,6 @@ kind: ApplicationSet
 metadata:
   name: appset-bootstrap
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-options: Delete=false
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]

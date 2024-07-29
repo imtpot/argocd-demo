@@ -9,8 +9,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/imtpot/argocd-demo.git
-    targetRevision: helmfile+appsets
-    path: bootstrap/
+    targetRevision: kustomize-helm
+    path: bootstrap/base
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
