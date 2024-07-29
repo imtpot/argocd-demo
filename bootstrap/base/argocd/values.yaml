@@ -42,3 +42,4 @@ extraObjects:
 configs:
   cm:
     exec.enabled: true
+    kustomize.buildOptions: --enable-helm
