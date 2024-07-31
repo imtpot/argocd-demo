@@ -1,0 +1,70 @@
+{{- range $appset := .Values.appsets }}
+{{- $revision := $appset.revision | default "HEAD" }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ $appset.name }}-appset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - git:
+        repoURL: "{{ $appset.repo_url }}"
+        revision: "{{ $revision }}"
+        files:
+          - path: "{{ $appset.config_search_path }}"
+  template:
+    metadata:
+      name: "{{`{{ .name }}`}}"
+      labels:
+        app.kubernetes.io/name: "{{`{{ .name }}`}}"
+    spec:
+      project: default
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{`{{ .namespace }}`}}"
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          selfHeal: true
+  templatePatch: |
+    spec:
+      sources:
+        - repoURL: {{`{{ dig "source" "repoURL" "` }}{{ $appset.repo_url }}{{`" . }}`}}
+          targetRevision: {{`{{ dig "source" "targetRevision" "` }}{{ $revision }}{{`" . }}`}}
+          {{`{{- if (dig "source" "chart" "" .) }}`}}
+          chart: {{`{{ dig "source" "chart" "" . }}`}}
+          {{`{{- else }}`}}
+          path: {{`{{ dig "source" "path" .path.basename . }}`}}
+          {{`{{- end }}`}}
+          {{`{{- if or (hasKey . "values") (hasKey . "values_files") }}`}}
+          helm:
+            {{`{{- if hasKey . "values" }}`}}
+            valuesObject: {{`{{ toJson .values }}`}}
+            {{`{{- end }}`}}
+            {{`{{- if hasKey . "values_files" }}`}}
+            valueFiles:
+              {{`{{- range $valueFile := .values_files }}`}}
+              - $values/{{`{{ $.path.path }}`}}/{{`{{ $valueFile }}`}}
+              {{`{{- end }}`}}
+            {{`{{- end }}`}}
+          {{`{{- end }}`}}
+        - repoURL: {{ $appset.repo_url }}
+          targetRevision: {{ $revision }}
+          ref: values
+        {{`{{- if hasKey . "addons" }}`}}
+        - repoURL: {{ $appset.repo_url }}
+          targetRevision: {{ $revision }}
+          path: {{`{{ .path.path }}`}}/{{`{{ .addons.path }}`}}
+          {{`{{- if hasKey .addons "vault" }}`}}
+          plugin:
+            name: lovely-vault-plugin
+          {{`{{- end }}`}}
+        {{`{{- end }}`}}
+      {{`{{- if hasKey . "ignoreDifferences" }}`}}
+      ignoreDifferences: {{`{{ toJson .ignoreDifferences }}`}}
+      {{`{{- end }}`}}
+{{- end }}

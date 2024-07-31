@@ -1,0 +1,7 @@
+appsets:
+  - name: infrastructure
+    repo_url: https://github.com/imtpot/argocd-infrastructure
+    config_search_path: "**/app-config.yaml"
+  - name: applications
+    repo_url: https://github.com/imtpot/argocd-applications
+    config_search_path: "**/app-config.yaml"
