@@ -1,0 +1,10 @@
+repositories:
+  - name: podinfo
+    url: https://stefanprodan.github.io/podinfo
+
+releases:
+  - name: podinfo
+    namespace: podinfo
+    chart: podinfo/podinfo
+    values:
+      - values-.yaml
