@@ -5,8 +5,6 @@ helmCharts:
   - name: podinfo
     repo: https://stefanprodan.github.io/podinfo
     version: 6.3.3
-    releaseName: podinfo-2
-    namespace: podinfo-2
     valuesFile: values.yaml
 
 resources:
