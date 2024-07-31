@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/imtpot/argocd-demo.git
         revision: main
         directories:
-          - path: argocd/applications
+          - path: argocd/applications/*
   template:
     metadata:
       name: "{{ .path.basename }}"
