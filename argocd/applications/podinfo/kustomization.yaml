@@ -8,3 +8,6 @@ helmCharts:
     releaseName: podinfo-2
     namespace: podinfo-2
     valuesFile: values.yaml
+
+resources:
+  - addons/secret.yaml
