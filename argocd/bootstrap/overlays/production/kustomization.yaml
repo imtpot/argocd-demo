@@ -4,6 +4,9 @@ kind: Kustomization
 resources:
   - ../../base/
 
+components:
+  - argocd
+
 patches:
   - path: root-patch.yaml
     target:
