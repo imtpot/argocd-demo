@@ -4,10 +4,11 @@ kind: Component
 resources:
   - namespace.yaml
 
+namespace: argocd
+
 helmCharts:
   - name: argo-cd
     repo: https://argoproj.github.io/argo-helm
     version: 7.3.11
     releaseName: argocd
-    namespace: argocd
     valuesFile: values.yaml
