@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - root.yaml
+  - appset-tpl.yaml
